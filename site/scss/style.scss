@@ -3,67 +3,211 @@
   text-align:center;
 }
 
-$mobile: 'min-width: 320px';
-$sans-serif-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-//$tablet: 'min-width: 768px';
+@import url(http://db.onlinewebfonts.com/c/364d81f3f71bc524d2235f8b406e732b?family=Flappy+Bird);
 
-@media screen and ($mobile) {
+@mixin my-font {
+	@font-face {font-family: "Flappy Bird";
+	    src: url("http://db.onlinewebfonts.com/t/364d81f3f71bc524d2235f8b406e732b.eot");
+	    src: url("http://db.onlinewebfonts.com/t/364d81f3f71bc524d2235f8b406e732b.eot?#iefix") format("embedded-opentype"),
+	    url("http://db.onlinewebfonts.com/t/364d81f3f71bc524d2235f8b406e732b.woff2") format("woff2"),
+	    url("http://db.onlinewebfonts.com/t/364d81f3f71bc524d2235f8b406e732b.woff") format("woff"),
+	    url("http://db.onlinewebfonts.com/t/364d81f3f71bc524d2235f8b406e732b.ttf") format("truetype"),
+	    url("http://db.onlinewebfonts.com/t/364d81f3f71bc524d2235f8b406e732b.svg#Flappy Bird") format("svg");
+	}	
+}
+
+/*Breakpoints*/
+$mobile-cover: 'min-width:320px';
+$mobile: 'min-width: 376px';
+$mobile-mid: 'min-width: 435px';
+$breakpoint:'min-width: 559px';
+
+$cta-color:#868686;
+$hover-color:lighten($cta-color, 10%);
+
+@media screen and ($mobile-cover) {
 .container {
     width: 100%;
-    border:1px solid red;
-    max-width:768px;
-    font:$sans-serif-font;
     box-sizing:border-box;
     display:flex;
     min-height:100vh;
     flex-direction:column;
+    font-family: "Flappy Bird";
+}
+
+.content {
+    background-image:url(http://flappycreator.com/default/bg.png);
+    background-size:cover;
+    padding:1.5em 0 2em 0;
+    flex-grow:1;
+    background-repeat:round;
 }
   
   header {
     @include centerer;
-    border:1px solid blue;
-    font-size:2em;
+    font-size:1.5em;
+    margin:0;
+    padding:0;
+    padding-top:0.5em;
+    padding-bottom:1.25em;
+    span {
+	  	margin:0;
+	  	font-size:5em;
+	  	color:white;
+  	}
   }
 
   .intro {
-    border:1px solid green;
-    padding:3em 1em;
-    } h3 {
+      h3 {
       @include centerer;
       font-size:2em;
     } ol {
-      padding-left:5em;
+	      padding-left:5em;
+	      margin:0;
     } li {
-      list-style-type:square;
-      font-size:1.5em;
+	      list-style-type:square;
+	      font-size:1.5em;
     }
+  }
   
   .call-to-action {
-    border:1px solid blue;
-    border-radius:50%;
-    width:25%;
-    margin:0 auto;
-    background-color:blue;
-    margin-top:1.5em;
-    margin-bottom:2em;
     flex:1;
-  } h2 {
-    @include centerer;
-    font-size:4em;
-    color:white;
-    font-weight:bolder;
+    font-size:2.2em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:2em;
+		#container_button {
+		    background-color: #252525;
+		    width: 240px;
+		    height: 240px;
+		    margin-left: auto;
+		    margin-right: auto;
+		    margin-bottom: 0px;
+		    margin-top: 0px;
+		    -webkit-border-radius: 200px;
+		    -moz-border-radius: 200px;
+		    border-radius: 200px;
+		    -webkit-box-shadow: inset 0px 2px 0px #585858, 1px 1px 0px #000, 2px 2px 5px #000;
+		    -moz-box-shadow: inset 0px 2px 0px #585858, 1px 1px 0px #000, 2px 2px 5px #000;
+		    box-shadow: inset 0px 2px 0px #585858, 1px 1px 0px #000, 2px 2px 5px #000;			
+		} #hole {
+		    background-color: #151515;
+		    width: 203px;
+		    height: 203px;
+		    margin-left: auto;
+		    margin-right: auto;
+		    top: 24px;
+		    left:1px;
+		    position: relative;
+		    -webkit-border-radius: 155px;
+		    -moz-border-radius: 155px;
+		    border-radius: 155px;
+		    -webkit-box-shadow: 1px 1px 0px #5d5d5d;
+		    -moz-box-shadow: 1px 1px 0px #5d5d5d;
+		    box-shadow: 1px 1px 0px #5d5d5d;		
+		} #button {
+		    width: 200px;
+		    height: 200px;
+		    margin-left: auto;
+		    margin-right: auto;
+		    overflow: auto;
+		    cursor: pointer;
+		    top: -5px;
+		    position: relative;
+		    background-image: linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+		    background-image: -o-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+		    background-image: -moz-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+		    background-image: -webkit-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+		    background-image: -ms-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+		    -webkit-border-radius: 150px;
+		    -moz-border-radius: 150px;
+		    border-radius: 150px;
+		    -webkit-box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px #2a2a2a, 0px 3px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 6px 0px #2a2a2a, 0px 7px 0px #2a2a2a, 0px 8px 0px #2a2a2a, 0px 9px 0px #2a2a2a, 0px 10px 0px #2a2a2a, 10px 20px 10px #000;
+		    -moz-box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px #2a2a2a, 0px 3px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 6px 0px #2a2a2a, 0px 7px 0px #2a2a2a, 0px 8px 0px #2a2a2a, 0px 9px 0px #2a2a2a, 0px 10px 0px #2a2a2a, 10px 20px 10px #000;
+		    box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px #2a2a2a, 0px 3px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 6px 0px #2a2a2a, 0px 7px 0px #2a2a2a, 0px 8px 0px #2a2a2a, 0px 9px 0px #2a2a2a, 0px 10px 0px #2a2a2a, 10px 20px 10px #000;
+		    -webkit-transition: all .2s;
+		    -moz-transition: all .2s;
+		    transition: all .2s;
+		    &:hover {
+		    	background-image:none;
+		    	background-color:$hover-color;
+		    }
+		}
   }
+
+#triangle {
+    width: 0px;
+    height: 0px;
+    margin-left: 50%;
+    margin-top: 50%;
+    left: -27px;
+    top: -50px;
+    position: relative;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 80px solid #22a9db;
+    z-index: 2;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+#button:hover #triangle { border-left: 80px solid #45bde9 }
+#button:active #triangle { border-left: 80px solid #e94545 }
+#lighter_triangle {
+    width: 0px;
+    height: 0px;
+    margin-left: 50%;
+    margin-top: 50%;
+    left: -27px;
+    top: -48px;
+    position: absolute;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 80px solid #43c0ee;
+    z-index: 1;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+#button:hover #lighter_triangle { border-left: 80px solid #8bdaf7 }
+#button:active #lighter_triangle { border-left: 80px solid #f78b8b }
+#darker_triangle {
+    width: 0px;
+    height: 0px;
+    margin-left: 50%;
+    margin-top: 50%;
+    left: -28px;
+    top: -53px;
+    position: absolute;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 80px solid #0a7da7;
+    z-index: 1;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+#button:hover #darker_triangle { border-left: 80px solid #1d98c5 }
+#button:active #darker_triangle { border-left: 80px solid #c51d1d }
   
   .footer {
-    margin-top:4.4em;
-    padding-top:1.5em;
-    border:1px solid black;
-  } .social {
-    border:1px solid orange;
-    @include centerer; 
-  } p {
-    @include centerer;
-    padding-top:1em;
-    padding-bottom:1em;
-  }
+  	background-color:#DDD894;
+  	padding:1.3em;
+  	font-size:1.5em;
+   .social {
+	    @include centerer; 
+	    padding-bottom:0.5em;
+	  } p {
+	    	@include centerer;
+	  }
+	}
 }
+
+@media screen and ($mobile) {
+	.content {
+		background-size:contain;
+	}
+}
+
+/*Div from block to inline when working with flappy-bird to multiple/single lines*/
