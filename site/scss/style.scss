@@ -133,7 +133,7 @@ $hover-color:lighten($cta-color, 10%);
 		    	background-color:$hover-color;
 		    }
 		}
-  }
+  }/*move out of call to action*/
 
 #triangle {
     width: 0px;
